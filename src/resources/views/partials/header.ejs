@@ -1,0 +1,52 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark borderradius-20"> 
+  <div class=" px-5 container-fluid">
+    <a class="px-5 navbar-brand home" href="/site/home">FastBlog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <% if(path === '/site/home'){ %>
+    <form method="get" action="/site/home" class="d-flex" style="border-radius: 20px;">
+        <input class="form-control me-2 borderradius-20" type="search" name="q" placeholder="<%= typeSearch %>" aria-label="Search">
+        <button class="btn btn-outline-success borderradius-20" type="submit">Search</button>
+    </form>
+    <% } else if(path === '/me/stored/courses'){ %>  
+    <form method="get" action="/me/stored/courses" class="d-flex">
+        <input class="form-control me-2 borderradius-20" type="search" name="q" placeholder="<%= typeSearch %>" aria-label="Search">
+        <button class="btn btn-outline-success borderradius-20" type="submit">Search</button>
+    </form>
+    <% } %>
+
+
+    <% if(token !== undefined){ %>
+    <div class="ml-auto px-5" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle home" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= fullName %>
+          </a>
+          
+          <ul class="dropdown-menu borderradius-20" aria-labelledby="navbarDropdown">
+              <% if(role === 'normal'){ %>
+              <li><a class="rightclick dropdown-item borderradius-20" href="/courses/create">Create new blog</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <% } %>
+              <li><a class="rightclick dropdown-item borderradius-20" href="/me/stored/courses">
+              <% if(role === 'normal'){ %> 
+                My bloggess
+              <% } %>
+              <% if(role === 'admin'){ %>
+                List bloggess
+              <% } %>  
+              </a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="rightclick dropdown-item borderradius-20" href="/logout">Logout</a></li>
+          </ul> 
+          
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <% } %>
+  </div>
+</nav>

@@ -1,0 +1,133 @@
+h1 {
+  font-size: 100px;
+  color: blue; }
+
+.deleteDot {
+    list-style-type: none !important;
+    
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }
+
+
+
+  /* css cho phan header */
+  .form-white.input-group>.form-control:focus {
+    border-color: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover,
+  .navbar-dark .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 0.75);
+  }
+/*end  css cho phan header */
+
+
+
+/*giới hạn chữ hiển thị ở home */
+.label_title {
+  width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+/*end giới hạn chữ hiển thị ở home */
+
+
+/* gắn header luôn luôn nằm ở đầu trang  */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* hover cho class home */
+
+
+
+/* hover cho class home */
+.home:hover {
+  color: darkgreen !important;
+}
+
+/* currentPage */
+.currentPage {
+  background-color: rgb(183, 215, 192) !important;
+  color: black;
+}
+
+.colortext {
+  color: darkgreen ;
+}
+
+.blcacktexthover:hover {
+  color: rgb(3, 48, 3) ;
+}
+
+/* gắn footer nằm ở dưới trang */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgb(183, 215, 192);
+}
+
+
+
+/* back ground color */
+.bgcolor {
+  background-color: rgb(84, 142, 84);
+}
+
+/* deletehover */
+.deletehover:hover {
+  background-color: rgb(140, 54, 54);
+}
+
+/* borderradius-20 */
+.borderradius-20 {
+  border-radius: 20px;
+}
+
+/* change background on right click */
+.rightclick:hover {
+  background-color: darkgreen;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+

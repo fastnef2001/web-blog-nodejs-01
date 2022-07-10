@@ -1,0 +1,199 @@
+
+
+<div class="p-5">
+  <h3><p><%= message %></p></h3>
+
+  <ul class="deleteDot" aria-labelledby="navbarDropdown">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date careate</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% courses.forEach(function(course) { %>
+          <tr>
+
+            <th scope="row"><%= courses.indexOf(course) + 1 %></th>
+
+            <td><img src="/../../img/<%= course.image %>" class="card-img-top" alt="..." style="width: 100px ;" /></td>
+            <td><%= course.name %></td>
+            <td style="text-align: justify;"><%= course.description %></td>
+           
+           
+            <td><%= course.createdAt %></td>
+            <td class="">
+              <a
+                href="/courses/<%= course._id %>/edit"
+                class="btn btn-primary mb-2"
+                type="button"
+              >Sửa</a>
+              <a
+                href=""
+                data-id="<%= course._id %>"
+                class="btn btn-primary mb-2"
+                style="background-color: red;"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                type="button"
+              >Xóa</a>
+            </td>
+
+          </tr>
+          <!-- {{! confirm delete course }} -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Xóa khóa học</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  Bạn có chắc là bạn muốn xóa khóa học này?
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >Close</button>
+                  <button
+                    id="btn-delete-course"
+                    type="button"
+                    class="btn btn-primary"
+                  >Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </tbody>
+    </table>
+  </ul>
+
+
+
+<!-- pagination -->
+<div class="row" >
+  <!-- hiển thị phân trang nếu có trang -->
+  <% if(pages > 0) { %>
+  <nav class="mx-auto">
+    <ul class="pagination justify-content-center" style="margin-top: 2rem;">
+    
+      <!-- FIRST ITEM -->  
+      <% if(current == 1) { %> 
+    <!-- // Nếu thông số http://localhost:3333/news/1/ là 1 thì First sẽ bị disabled -->
+          <li class="page-item disabled">
+            <a class="page-link" href="/">First</a>
+          </li>
+      <% } else { %>
+      <!-- // Nếu thông số http://localhost:3333/news/2/ từ 2 trở lên thì First sẽ bỏ disabled -->
+          <li class="page-item">
+              <%= i %>
+            <a class="page-link" href="/me/stored/myCourses?page=<%= i %>&q=<%= typeSearch %>">First</a>
+          </li>
+      <% } %>
+      
+      <!-- ITEMS  -->
+      <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %> 
+<!-- // Toán tử điều kiện 3 ngôi syntax: < điều_kiện ? giá_trị_1 : giá_trị_2 > -->
+<!-- // Nếu điều_kiện trả về true, toán tử có giá trị giá_trị_1. Ngược lại toán tử có giá trị giá_trị_2. -->
+      <% if(i !== 1) { %>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">...</a>
+          </li>
+      <% } %>
+      <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+      <!-- // Sử dụng vòng lặp để lặp qua từng trang và tăng số trang  -->
+      <!-- // Trong vòng lặp for có ba biểu thức tùy chọn nên chỉ cần các bạn tách mỗi biểu thức bằng dấu `;` là oke rồi -->
+        <% if(i == current) { %>
+          <li class="page-item active">
+            <a class="page-link" href="/me/stored/myCourses?page=<%= i %>&q=<%= typeSearch %>">
+              <%= i %>
+            </a>
+          </li>
+      <% } else { %>
+          <li class="page-item">
+            <a class="page-link" href="/me/stored/myCourses?page=<%= i %>&q=<%= typeSearch %>">
+              <%= i %>
+            </a>
+          </li>
+      <% } %>
+      <% if (i == Number(current) + 2 && i < pages) { %>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">...</a>
+          </li>
+      <% } %>
+      <% } %>
+      
+      <!-- LAST ITEM -->
+      <% if(current == pages) { %> 
+     <!-- // Nếu số current( chỉ số phân trang ) là 6 và tổng số page là 6 thì Last bị disabled -->
+          <li class="page-item disabled">
+            <a class="page-link" href="#">
+              Last
+            </a>
+          </li>
+      <% } else { %>
+      <!-- // Ngược lại, thì Last là trang cuối cùng pages ở đây là 6 đồng nghĩa với Last là trang số 6 -->
+          <li class="page-item">
+            <a class="page-link" href="/me/stored/myCourses?page=<%= pages %>&q=<%= typeSearch %>">
+              Last
+            </a>
+          </li>
+      <% } %>
+    </ul>
+  </nav>
+  <% } %>
+</div>
+
+
+</div>
+
+<!-- {{! Delete hidden form }} -->
+<form name="delete-course-form" method="POST"></form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() { 
+    let courseId; 
+    var deleteCourseForm = document.forms['delete-course-form']; 
+    var btnDeleteCourse = document.getElementById('btn-delete-course');
+     console.log(btnDeleteCourse);
+
+  $('#exampleModal').on('show.bs.modal', function (event) { 
+    var button = $(event.relatedTarget); 
+        courseId = button.data('id');
+    console.log(courseId);
+    });
+
+   
+  
+
+  btnDeleteCourse.onclick = function (event) {
+   
+   
+    
+    deleteCourseForm.action = '/courses/' + courseId + '?_method=DELETE';
+    deleteCourseForm.submit();
+   }
+  });
+</script>

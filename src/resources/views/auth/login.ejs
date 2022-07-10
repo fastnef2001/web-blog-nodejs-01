@@ -1,0 +1,29 @@
+
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bgcolor text-white borderradius-20">
+          <div class="card-body p-5 text-center">
+            <form method="POST" action="/login">
+            <div class="mb-5">
+              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <p class="text-white-50 mb-4"><%= error %></p>
+              <div class="form-outline form-white mb-3">
+                <input type="email" id="email" name="email" class="form-control form-control-lg borderradius-20" placeholder="Enter your email"/>
+              </div>
+              <div class="form-outline form-white mb-4">
+                <input type="password" id="password" name="password" class="form-control form-control-lg borderradius-20" placeholder="Enter your password"/>
+              </div>
+              <button class="btn btn-outline-light btn-lg px-5 borderradius-20" type="submit">Login</button>
+            </div>
+            </form>
+            <div>
+              <p class="mb-0">Don't have an account? <a href="/register" class="text-white-50 fw-bold">Sign Up</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

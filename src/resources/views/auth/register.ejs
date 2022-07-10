@@ -1,0 +1,43 @@
+
+  <div class="container mt-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bgcolor text-white borderradius-20">
+          <div class="card-body p-5 text-center">
+
+            <form method="POST" action="/register">
+            <div class="mb-2">
+
+              <h2 class="fw-bold mb-2 text-uppercase">register</h2>
+              <p class="text-white-50 mb-4">Please enter your information</p>
+              <p style="color: crimson;"><%= message %></p>
+
+              <div class="form-outline form-white mb-3">
+                <input type="text" id="fullName" name="fullName" class="form-control form-control-lg borderradius-20" placeholder="Enter your full name"  />
+              </div>
+
+              <div class="form-outline form-white mb-3">
+                <input type="email" id="email" name="email" class="form-control form-control-lg borderradius-20" placeholder="Enter your email" />
+              </div>
+
+              <div class="form-outline form-white mb-3 d-none">
+                <input type="text" id="role" name="role" class="form-control form-control-lg borderradius-20" value="normal"/>
+              </div>
+              <div class="form-outline form-white mb-4">
+                <input type="password" id="password" name="password" class="form-control form-control-lg borderradius-20" placeholder="Enter your password" />
+              </div>
+              <button class="btn btn-outline-light btn-lg px-5 borderradius-20" type="submit">register</button>
+            </div>
+            </form>
+
+            <div>
+              <p class="mb-0">Do you have an account? <a href="/" class="text-white-50 fw-bold">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
